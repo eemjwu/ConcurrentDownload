@@ -1,0 +1,23 @@
+---
+# https://git.woa.com/standards/cpp/blob/master/format/.clang-format
+Language: Cpp
+BasedOnStyle: Google
+ColumnLimit: 120
+DerivePointerAlignment: true
+ForEachMacros: ['']
+IncludeBlocks: Preserve
+IndentPPDirectives: AfterHash
+PointerAlignment: Left
+SortIncludes: true
+SpacesBeforeTrailingComments: 2
+---
+# https://git.woa.com/standards/protobuf
+# Official clang-format config does not exist yet, but the standards draft
+# follows Google style, except that the column limit is relaxed to 100.
+# We further extend it to 120 to be consistent with other languages, as PCG
+# used proto annotations such as validate extensively, and a longer column
+# width reduces unnecessary line split.
+Language: Proto
+BasedOnStyle: Google
+ColumnLimit: 120
+...
