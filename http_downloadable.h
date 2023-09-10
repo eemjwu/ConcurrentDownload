@@ -18,7 +18,7 @@ class HttpDownloadable : public Downloadable {
  private:
   // 获取文件大小
   int GetFileSize(const std::string& url, curl_off_t& file_size);
-  // 分块下载
+  // 利用http分块下载
   int DownloadPart(const std::string& url, const std::string& local_path_file, size_t total_size, int total_part,
                    int part);
 };

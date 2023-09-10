@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
 #include <iostream>
+#include <string>
 #include "thread_pool.h"
 
 namespace DownLoad {
@@ -29,12 +29,13 @@ class Downloadable {
   Downloadable(int thread_nums) {
     if (thread_nums > 0) thread_nums_ = thread_nums;
   }
-
+  // ret 0： 全部成功； >1 失败的分片数
   virtual int Download(const std::string& url, const std::string& local_path, const std::string& local_name) = 0;
   virtual ~Downloadable() {}
 
  protected:
   int MergeFile(const std::string& local_path_file);
+  // download_part_op 不同协议实际的下载方法
   int ParallelDownload(const std::string& url, const std::string& local_path_file, size_t file_size,
                        RealDownloadPartOP download_part_op) {
     // std::cout << "size: " << file_size << std::endl;
